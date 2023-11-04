@@ -28,31 +28,28 @@ def newton(x, iterations):
 
 x = numpy.linspace(-0.5, 2.5, 1000)
 y = f(x)
-
-xx, yy = gradient(0, 0.1, 9)
-
 plt.figure(1)
-#plt.subplot(121)
-plt.plot(x, y, xx, yy, 'ro')
+plt.subplot(121)
+plt.plot(x, y, color = 'blue')
 plt.xlabel('x')
 plt.ylabel('y')
-plt.title('Gradient Descent Method')
+
+xx, yy = gradient(0, 0.1, 10)
+plt.plot(xx, yy, 'ro')
 plt.text(1, 10, 'Copyright@CompileErr0r(11127137)', ha = 'center', va = 'center', rotation = 15, alpha = 0.2, wrap = True, fontsize = 25)
-plt.show()
+plt.title('Gradient Descent Method')
 
+xx2, yy2 = newton(0, 10)
 
-x = numpy.linspace(-5, 10, 1000)
-y = f(x)
-xx, yy = newton(0, 9)
+# plot the points (x in -0.5 ~ 2.5) and dont let the points out of the range
 
-#plt.subplot(122)
-
-
-plt.plot(x, y, xx, yy, 'ro')
+plt.subplot(122)
+plt.plot(x, y, color = 'blue')
+for i,j in zip(xx2, yy2):
+    if i >= -0.5 and i <= 2.5:
+        plt.plot(i, j, 'bs')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.title('Newton Method')
-
-plt.text(2.5, 50, 'Copyright@CompileErr0r(11127137)', ha = 'center', va = 'center', rotation = 15, alpha = 0.2, wrap = True, fontsize = 25)
-
+plt.text(1, 10, 'Copyright@CompileErr0r(11127137)', ha = 'center', va = 'center', rotation = 15, alpha = 0.2, wrap = True, fontsize = 25)
 plt.show()

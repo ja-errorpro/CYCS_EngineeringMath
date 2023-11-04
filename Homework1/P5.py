@@ -45,8 +45,6 @@ Graph(x, y, z, r'$ x^2 + xe^y $', 'x', 'y')
 X = numpy.linspace(0, 2*numpy.pi, 1000, endpoint = False)
 Y = numpy.linspace(0, 2*numpy.pi, 1000, endpoint = False)
 x,y = numpy.meshgrid(X, Y)
-
-
 z = y**2 * numpy.exp(y) * numpy.sin(x)
 
 Graph(x, y, z, r'$ y^2e^ysin(x) $', 'x', 'y')
